@@ -7,6 +7,10 @@ This project demonstrates a simple TicTacToe game implementation in React
 Clone the repository.\
 In the project directory, you can run:
 
+### `npm install`
+
+Installs the dependencies required to run the game.
+
 ### `npm start`
 
 Runs the game in the development mode.\
