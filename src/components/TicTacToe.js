@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Grid from "./Grid";
 
 const TicTacToe = () => {
@@ -16,6 +16,23 @@ const TicTacToe = () => {
     ];
 
     const [isFirstPlayerTurn, setFirstPlayerTurn] = useState(true);
+
+    useEffect(() => {
+        let valueToCheck = !isFirstPlayerTurn ? 1 : 2;
+        let hasWinningCombo = checkLines(winningLines, valueToCheck);
+        //let hasMovesLeft = hasMovesLeft(gridArray.current);
+        if(hasWinningCombo || !hasMovesLeft(gridArray.current)) {
+            let message;
+            if(hasWinningCombo) {
+                message = "Game Over, player " + (!isFirstPlayerTurn ? 1 : 2) + " won!\nPress OK to restart";
+            } else {
+                message = "Game Over, game ended in a draw\nPress OK to restart";
+            }
+            window.alert(message);
+            gridArray.current = Array.from(Array(9).fill(0));
+            setFirstPlayerTurn(true);
+        }
+    });
 
     const onTilePress = (index) => {
         gridArray.current[index] = isFirstPlayerTurn ? 1 : 2;
