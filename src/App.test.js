@@ -1,4 +1,4 @@
-import TicTacToe, { checkLine, checkLines, hasMovesLeft } from './components/TicTacToe';
+import { checkLine, checkLines, hasMovesLeft } from './components/TicTacToe';
 
 test('test checkLine', () => {
   expect(checkLine([1, 1, 1], 1)).toBe(true);

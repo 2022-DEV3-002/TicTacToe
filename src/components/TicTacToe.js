@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Grid from "./Grid";
 
 const TicTacToe = () => {
@@ -15,8 +15,18 @@ const TicTacToe = () => {
         gridArray.current.filter((value, index) => index === 2 || index === 4 || index === 6)
     ];
 
+    const [isFirstPlayerTurn, setFirstPlayerTurn] = useState(true);
+
+    const onTilePress = (index) => {
+        gridArray.current[index] = isFirstPlayerTurn ? 1 : 2;
+        setFirstPlayerTurn(!isFirstPlayerTurn);
+    }
+
     return(
-        <Grid/>
+        <Grid
+        gridArray={gridArray.current}
+        onTilePress={onTilePress}
+        />
     );
 }
 
