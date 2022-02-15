@@ -1,3 +1,5 @@
+import Grid from "./Grid";
+
 const TicTacToe = () => {
     const checkLine = (line, valueToCheck) => {
         return false;
@@ -10,5 +12,9 @@ const TicTacToe = () => {
     const hasMovesLeft = (gridArray) => {
         return false;
     }
+
+    return(
+        <Grid/>
+    );
 }
 export default TicTacToe;
